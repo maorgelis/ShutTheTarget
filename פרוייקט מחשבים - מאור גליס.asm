@@ -46,34 +46,8 @@
  p33 dw ?
  p44 dw ? 
  
- 
-msg1 db 13,10,'   __  __                     ____      _ _ :$'    
-msg2 db 13,10,'  |  \/  | __ _  ___  _ __   / ___| ___| (_)___  :$' 
-msg3 db 13,10,'  | |\/| |/ _` |/ _ \| '__| | |  _ / _ \ | / __| :$'
-msg4 db 13,10,'  | |  | | (_| | (_) | |    | |_| |  __/ | \__ \ :$'
-msg5 db 13,10,'  |_|  |_|\__,_|\___/|_|     \____|\___|_|_|___/ :$'
-                                               
- 
-msg6 db 13,10,'    ____  _                 _  _____ _         _____                    _  :$'   
-msg7 db 13,10,'   / ___|| |__   ___   ___ | ||_   _| |__   __|_   _|_ _ _ __ __ _  ___| |_ :$' 
-msg8 db 13,10,'   \___ \| '_ \ / _ \ / _ \| __|| | | '_ \ / _ \| |/ _` | '__/ _` |/ _ \ __| :$'
-msg9 db 13,10,'    ___) | | | | (_) | (_) | |_ | | | | | |  __/| | (_| | | | (_| |  __/ |_ :$' 
-msg10 db 13,10,'  |____/|_| |_|\___/ \___/ \__||_| |_| |_|\___||_|\__,_|_|  \__, |\___|\__| :$'
                                                             
-        
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
+         
 ;=========================================
 .CODE
  circle proc
@@ -504,9 +478,11 @@ proc LaunchArrow
     push xline
     push yline
     push wline
-    call drawline 
+    call drawline
+    
+    mov cx,3 
     popa
-    ret 
+    ret  
                   
 endp LaunchArrow
 
@@ -515,55 +491,6 @@ start:
  mov ax,@DATA
  mov ds, ax 
  
-lea DX,msg1 
-mov AH,09h 
-int 21h  
- 
-lea DX,msg2 
-mov AH,09h 
-int 21h 
-
-lea DX,msg3 
-mov AH,09h 
-int 21h 
-
-lea DX,msg4 
-mov AH,09h 
-int 21h 
-
-lea DX,msg5 
-mov AH,09h 
-int 21h  
- 
-lea DX,msg6 
-mov AH,09h 
-int 21h  
- 
-lea DX,msg7
-mov AH,09h 
-int 21h 
-
-lea DX,msg8 
-mov AH,09h 
-int 21h 
-
-lea DX,msg9 
-mov AH,09h 
-int 21h 
-
-lea DX,msg10 
-mov AH,09h 
-int 21h 
-
-
-
-
-
-
-
-
-
-
 
 
  
@@ -657,7 +584,7 @@ int 21h
     je MoveDown
     
     cmp ah, 4Bh
-    je LaunchArrow
+    je LaunchArrowLabel
     
     MoveUp:
     
@@ -932,7 +859,7 @@ int 21h
  call circle
               
  mov [x_center],280
- mov [y_center],100 
+ mov [y_center],100     
  mov [x_value],20
  mov [y_value],0
  mov [color],14
@@ -951,3 +878,4 @@ exit:
 END start
 
 ret 
+   
