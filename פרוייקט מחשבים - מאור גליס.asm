@@ -46,7 +46,27 @@
  p33 dw ?
  p44 dw ? 
  
-                                                            
+crlf db 13,10,'$' 
+msg1 db  ' __  __    _    ___  ____     ____ _____ _     ___ ____   $'   ,13,10
+msg2 db  '|  \/  |  / \  / _ \|  _ \   / ___| ____| |   |_ _/ ___|  $'   ,13,10
+msg3 db  '| |\/| | / _ \| | | | |_) | | |  _|  _| | |    | |\___ \  $'   ,13,10
+msg4 db  '| |  | |/ ___ \ |_| |  _ <  | |_| | |___| |___ | | ___) | $'   ,13,10
+msg5 db  '|_|  |_/_/   \_\___/|_| \_\  \____|_____|_____|___|____/  $'   ,13,10
+msg6 db  '                                                          $'   ,13,10
+  
+
+msg7 db "  ____  _   _ _   _ _____    ",13,10,         " / ___|| | | | | | |_   _|",13,10,            " \___ \| |_| | | | | | |",13,10,              "  ___) |  _  | |_| | | |",13,10,              " |____/|_| |_|\___/  |_|",13,10,              " |_   _| | | | ____|",13,10,              "   | | | |_| |  _|",13,10,                    "   | | |  _  | |___",13,10,                   "  _|_|_|_| |_|_____| ____ _____ _____ ",13,10," |_   _|/ \  |  _ \ / ___| ____|_   _|",13,10,"   | | / _ \ | |_) | |  _|  _|   | |",13,10,  "   | |/ ___ \|  _ <| |_| | |___  | |",13,10,  "   |_/_/   \_\_| \_\\____|_____| |_|$",13,10,  
+                                     
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                                                             
          
 ;=========================================
 .CODE
@@ -485,16 +505,65 @@ proc LaunchArrow
     ret  
                   
 endp LaunchArrow
-
+ 
+ 
+ 
+ proc delay
+	pusha
+	mov cx, 03h   ;High Word
+	mov dx, 4240h ;Low Word
+	mov ah, 86h   ;Wait
+	int 15h
+	popa
+	ret
+endp delay
 start: 
  
  mov ax,@DATA
- mov ds, ax 
+ mov ds, ax
  
-
-
+  
+    lea DX,msg1 
+    mov AH,09h 
+    int 21h
+    lea DX,crlf 
+    mov AH,09h 
+    int 21h 
+    lea DX,msg2 
+    mov AH,09h 
+    int 21h
+    lea DX,crlf 
+    mov AH,09h 
+    int 21h  
+    lea DX,msg3 
+    mov AH,09h 
+    int 21h
+    lea DX,crlf 
+    mov AH,09h 
+    int 21h  
+    lea DX,msg4 
+    mov AH,09h 
+    int 21h
+    lea DX,crlf 
+    mov AH,09h 
+    int 21h  
+    lea DX,msg5 
+    mov AH,09h 
+    int 21h
+    lea DX,crlf 
+    mov AH,09h 
+    int 21h  
+    lea DX,msg6 
+    mov AH,09h 
+    int 21h
+    lea DX,crlf 
+    mov AH,09h 
+    int 21h 
+    lea DX,msg7 
+    mov AH,09h 
+    int 21h
  
- 
+    call delay
  mov ah,0 ;subfunction 0
  mov al,mode ;select mode 13h 
  int 10h ;call graphics interrupt
@@ -878,4 +947,3 @@ exit:
 END start
 
 ret 
-   
