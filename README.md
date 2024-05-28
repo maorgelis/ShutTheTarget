@@ -35,24 +35,31 @@
 
 
 התוכנית מציגה על המסך לוגו של שם הפרוייקט והמתכנת: 
+
 ![צילום מסך 2024-05-28 172853](https://github.com/maorgelis/ShutTheTarget/assets/167463733/d2c9c340-6a3c-4f2d-8231-383e4bbe9895)
 
 התוכנית מציירת מטרה וחץ: 
+
 ![צילום מסך 2024-05-28 173003](https://github.com/maorgelis/ShutTheTarget/assets/167463733/46732e06-3d3c-48b3-8fbf-38817e19fa12)
 
 התוכנית מבקשת מהמשתמש ללחוץ על אחד הממקשים (עליון\תחתון\שמאלה):
+
 ![צילום מסך 2024-05-28 173059](https://github.com/maorgelis/ShutTheTarget/assets/167463733/45cec8f4-a544-464c-9db1-a81ff12a5ccf)
 
 התוכנית מזיזה את החץ על פי לחיצת המשתמשים (בתמונה לחצתי כבר על החץ כמה פעמים למטה כך שהוא מול המטרה):
+
 ![צילום מסך 2024-05-28 173243](https://github.com/maorgelis/ShutTheTarget/assets/167463733/566629ab-9c5c-4f1c-a4bb-97b2a9033891)
 
 התוכנית מבקשת שוב מהמשתמש ללחוץ על אחד מהמקשים ולחצתי על המקש שמאלה (שמשגר את החץ):
+
 ![צילום מסך 2024-05-28 173343](https://github.com/maorgelis/ShutTheTarget/assets/167463733/cc9fc662-b32f-49bf-b077-0b0e32aae36a)
 
 החץ פגע במטרה: 
 
 ![צילום מסך 2024-05-28 173517](https://github.com/maorgelis/ShutTheTarget/assets/167463733/408db325-aa14-4326-a36e-c9d04b1f04bf)
+
 מטרה נמחקת ונצבעת בצהוב:
+
 ![צילום מסך 2024-05-28 173642](https://github.com/maorgelis/ShutTheTarget/assets/167463733/2bc33742-66a5-4187-a77c-f0ead3e25514)
 
 נגמרה התוכנית!
