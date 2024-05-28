@@ -8,12 +8,12 @@
 ; Basic program to draw a circle
 ;=========================================
  mode db 13h ;
- x_center dw ? ;; נקודת האיקס של מרכז המעגל
- y_center dw ? ;;  של מרכז המעגל y-נקודת ה 
+ x_center dw ? ;; the X-point of the center of the circle
+ y_center dw ? ;; the Y-point of the center of the circle
  y_value dw 0   
- x_value dw ? ; קובע את גודל הרדיוס של המעגל
+ x_value dw ? ; the radius of the circle
  decision dw 0
- color db ? ;1=blue ;;;; המשתנה קובע את הצבע של הפונקציית עיגול
+ color db ? ;1=blue ;;;; the color of the circle
  
  x1 dw ? 
  y1 dw ?
@@ -21,31 +21,31 @@
  h dw ? 
 
   
- xline dw ? ;;;; המשתנה קובע באיזה שורה(ציר איקס) יהיה מיקום הקו הישר 
- yline dw ? ;;;; המשתנה קובע באיזה טור(ציר וואי) יהיה מיקום הקו הישר 
- wline dw ? ;;;; המשתנה קובע מה האורך של הקו הישר 
+ xline dw ? ;;;; determines in which row (x-axis) the position of the straight line will be
+ yline dw ? ;;;;  determines in which column (y-axis) the position of the straight line will be
+ wline dw ? ;;;;  determines the length of the line
 
 
  TempW dw ? 
  pointX dw ? 
  pointY dw ?
- point1X dw ? ;;;;  המשתנה מראה את הערך איקס של הנקודה הראשונה בפונקצית הקו האלכסון
- point1Y dw ? ;;;;  המשתנה מראה את הערך וואי של הנקודה הראשונה בפונקצית הקו האלכסון
- point2X dw ? ;;;;  המשתנה מראה את הערך איקס של הנקודה השנייה בפונקצית הקו האלכסון
- point2Y dw ? ;;;;  המשתנה מראה את הערך וואי של הנקודה השנייה בפונקצית הקו האלכסון
- Colore db ? ;;;; המשתנה קובע את הצבע של הקווים האלכסוניים 
+ point1X dw ? ;;;; The variable shows the x value of the first point in the diagonal line function
+ point1Y dw ? ;;;; The variable shows the y value of the first point in the diagonal line function
+ point2X dw ? ;;;; The variable shows the x value of the second point in the diagonal line function
+ point2Y dw ? ;;;; ; The variable shows the y value of the second point in the diagonal line function
+ Colore db ? ;;;; the color of the diagonal line 
     
- p1 dw ? ;;;; המשתנה שומר על הערך של איקס בנקודה הראשונה של הפונקציה שמציירת את הקו אלכסון התחתון
- p2 dw ? ;;;; המשתנה שומר על הערך של איקס בנקודה השנייה של הפונקציה שמציירת את הקו אלכסון התחתון
- p3 dw ?  ;;;; המשתנה שומר על הערך של וואי בנקודה הראשונה של הפונקציה שמציירת את הקו אלכסון התחתון
- p4 dw ?  ;;;; המשתנה שומר על הערך של וואי בנקודה השנייה של הפונקציה שמציירת את הקו אלכסון התחתון
+ p1 dw ? ;;;; The variable keeps the value of X at the first point of the function that draws the lower diagonal line
+ p2 dw ? ;;;; The variable keeps the value of X at the second point of the function that draws the lower diagonal line
+ p3 dw ?  ;;;; The variable keeps the value of Y at the first point of the function that draws the lower diagonal line
+ p4 dw ?  ;;;; The variable keeps the value of Y at the second point of the function that draws the lower diagonal line
     
- p11 dw ?  ;;;; המשתנה שומר על הערך של איקס בנקודה הראשונה של הפונקציה שמציירת את הקו אלכסון העליון
- p22 dw ?  ;;;; המשתנה שומר על הערך של איקס בנקודה השנייה של הפונקציה שמציירת את הקו אלכסון העליון
- p33 dw ?  ;;;; המשתנה שומר על הערך של וואי בנקודה הראשונה של הפונקציה שמציירת את הקו אלכסון העליון
- p44 dw ?   ;;;; המשתנה שומר על הערך של וואי בנקודה השנייה של הפונקציה שמציירת את הקו אלכסון העליון
+ p11 dw ?  ;;;; The variable keeps the value of X at the first point of the function that draws the upper diagonal line
+ p22 dw ?  ;;;; The variable keeps the value of X at the second point of the function that draws the upper diagonal lineון
+ p33 dw ?  ;;;; The variable keeps the value of Y at the first point of the function that draws the upper diagonal line
+ p44 dw ?   ;;;; The variable keeps the value of Y at the second point of the function that draws the upper diagonal line
  
-crlf db 13,10,'$' 
+crlf db 13,10,'$' ;;;; make space  
 msg1 db  ' __  __    _    ___  ____     ____ _____ _     ___ ____   $'   ,13,10
 msg2 db  '|  \/  |  / \  / _ \|  _ \   / ___| ____| |   |_ _/ ___|  $'   ,13,10
 msg3 db  '| |\/| | / _ \| | | | |_) | | |  _|  _| | |    | |\___ \  $'   ,13,10
@@ -66,8 +66,9 @@ msg7 db "  ____  _   _ _   _ _____    ",13,10,         " / ___|| | | | | | |_   
  
  
                                                              
-;;;;  טענת כניסה הפרמטרים הנדרשים: x_center -ערך איקס של מרכז המעגל,y_center -ערך וואי של מרכז המעגל ,y_value,x_value -גודל הרדיוס של המעגל , color -צבע המעגל
-;;;;  טענת יציאה : הפונקציה מציירת עיגול על המסך בהתאם לערכים שהוכנסו אליה 
+;;;; 
+Input argument The required parameters: x_center - X value of the center of the circle, y_center - y value of the center of the circle, y_value, x_value - the size of the radius of the circle, color - the color of the circle
+;;;;  Output assertion: the function draws a circle on the screen according to the values ​​entered into it
 ;=========================================
 .CODE
  circle proc
@@ -181,8 +182,9 @@ end:
 ret
  circle endp
  
-;;;;  xline -ערך האיקס של הקו הישר ,yline -ערך הוואי של הקו הישר ,wline -האורך של הקו הישר , color-טענת כניסה, הפרמטרים הנדרשים: צבע הקו הישר
-;;;;  טענת יציאה :  הפונקציה מציירת קו ישר בהתאם לערכים שנכנסו אליה  
+;;;; 
+xline - the x value of the straight line, yline - the Hawaii value of the straight line, wline - the length of the straight line, color - input argument, the required parameters: the color of the straight line
+;;;; Exit assertion: the function draws a straight line according to the values ​​entered into it  
 drawline proc
     push BP     ; save BP on stack
     mov BP, SP  ; set BP to current SP     
@@ -202,8 +204,9 @@ line: mov ah, 0ch      ; put pixel
     RET 6           ; return from the function and clean up the stack 
 drawline endp
 
-;;;; point2Y- ערך וואי של הנקודה השנייה של הקו אלכסון  ,point2X- ערך איקס של הנקודה השנייה של הקו אלכסון   ,point1Y- ערך וואי של הנקודה הראשונה של הקו אלכסון ,point1X-טענת כניסה הפרמטרים הנדרשים: ,ערך האיקס של הנקודה הראשונה של הקו אלכסו 
-;;;; .טענת יציאה : הפונקציה מציירת קו אלכסון על פי שני נקודות של איקס ווואי ומציירת על פי ערכיהם של הנקודות  
+;;;;
+point2Y- y value of the second point of the diagonal line, point2X- x value of the second point of the diagonal line, point1Y- y value of the first point of the diagonal line, point1X- input argument The required parameters: the x value of the first point of the diagonal line
+;;;; Output claim: The function draws a diagonal line according to two points of X and W and draws according to the values ​​of the points  
  Macro DrawLine2DDY p1X, p1Y, p2X, p2Y
    
 	local l1, lp, nxt
@@ -383,8 +386,8 @@ PROC PIXEL
 	ret 
 ENDP PIXEL 
 
-;;;;   xline -ערך האיקס של הקו הישר ,yline -ערך הוואי של הקו הישר ,wline -האורך של הקו הישר , color- צבע הקו הישר,point2Y- ערך וואי של הנקודה השנייה של הקו אלכסון  ,point2X- ערך איקס של הנקודה השנייה של הקו אלכסון   ,point1Y- ערך וואי של הנקודה הראשונה של הקו אלכסון ,point1X-טענת כניסה הפרמטרים הנדרשים: ,ערך האיקס של הנקודה הראשונה של הקו אלכסו 
-;;;; טענת יציאה : הפונקציה מקבל מקבלת את הערכים הקודמים של המטרה שציירתי ומוחקת אותם ומציירת אותם מחדש במיקום שונה שבעצ ם משגר את החץ לעבר המטרה בקפיצות זהות על פי ערכי המשתנים 
+;;;;  xline - the X value of the straight line, yline - the Hawaii value of the straight line, wline - the length of the straight line, color - the color of the straight line, point2Y - the Wai value of the second point of the diagonal line, point2X - the X value of the second point of the diagonal line point1Y- the Y value of the first point of the diagonal line, point1X- input argument The required parameters: the X value of the first point of the diagonal line 
+;;;; Exit assertion: the function receives receives the previous values ​​of the target I drew and deletes them and redraws them in a different position which actually launches the arrow towards the target in identical jumps according to the values ​​of the variables
 proc LaunchArrow
     pusha
     mov [wline],50 
