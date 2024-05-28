@@ -35,22 +35,30 @@
 
 
 התוכנית מציגה על המסך לוגו של שם הפרוייקט והמתכנת: 
-![WhatsApp Image 2024-05-26 at 19 08 36](https://github.com/maorgelis/ShutTheTarget/assets/167463733/c9ada5f9-7908-4e37-b1db-a1c277e73c1e)
+![צילום מסך 2024-05-28 172853](https://github.com/maorgelis/ShutTheTarget/assets/167463733/d2c9c340-6a3c-4f2d-8231-383e4bbe9895)
+
 התוכנית מציירת מטרה וחץ: 
-![WhatsApp Image 2024-05-26 at 19 09 43](https://github.com/maorgelis/ShutTheTarget/assets/167463733/dc24598e-dcb7-4d37-90bf-d5d9c8c2e3d8)
+![צילום מסך 2024-05-28 173003](https://github.com/maorgelis/ShutTheTarget/assets/167463733/46732e06-3d3c-48b3-8fbf-38817e19fa12)
+
 התוכנית מבקשת מהמשתמש ללחוץ על אחד הממקשים (עליון\תחתון\שמאלה):
-![WhatsApp Image 2024-05-26 at 19 09 55](https://github.com/maorgelis/ShutTheTarget/assets/167463733/1981c41a-29d4-457e-9cb3-7baa69e05863)
-התוכנית מזיזה את החץ על פי לחיצת המשתמשים (בתמונה לחצתי כבר על החץ כמה פעמים למטה כך שהוא מול המטרה:
-![WhatsApp Image 2024-05-26 at 19 13 41](https://github.com/maorgelis/ShutTheTarget/assets/167463733/f2af8580-ffbf-47bb-b295-4c16f0f42097)
+![צילום מסך 2024-05-28 173059](https://github.com/maorgelis/ShutTheTarget/assets/167463733/45cec8f4-a544-464c-9db1-a81ff12a5ccf)
+
+התוכנית מזיזה את החץ על פי לחיצת המשתמשים (בתמונה לחצתי כבר על החץ כמה פעמים למטה כך שהוא מול המטרה):
+![צילום מסך 2024-05-28 173243](https://github.com/maorgelis/ShutTheTarget/assets/167463733/566629ab-9c5c-4f1c-a4bb-97b2a9033891)
+
 התוכנית מבקשת שוב מהמשתמש ללחוץ על אחד מהמקשים ולחצתי על המקש שמאלה (שמשגר את החץ):
-![WhatsApp Image 2024-05-26 at 19 15 12](https://github.com/maorgelis/ShutTheTarget/assets/167463733/52e67327-e94f-4d69-8d91-d6e0337417df)
+![צילום מסך 2024-05-28 173343](https://github.com/maorgelis/ShutTheTarget/assets/167463733/cc9fc662-b32f-49bf-b077-0b0e32aae36a)
+
 החץ פגע במטרה: 
-![WhatsApp Image 2024-05-26 at 19 16 13](https://github.com/maorgelis/ShutTheTarget/assets/167463733/0b180e8a-27da-4b17-8b1c-d29a12802c6d)
+
+![צילום מסך 2024-05-28 173517](https://github.com/maorgelis/ShutTheTarget/assets/167463733/408db325-aa14-4326-a36e-c9d04b1f04bf)
 מטרה נמחקת ונצבעת בצהוב:
-![WhatsApp Image 2024-05-26 at 19 17 37](https://github.com/maorgelis/ShutTheTarget/assets/167463733/4cd1c32c-e311-420b-ace0-1c108dbf7e53)
+![צילום מסך 2024-05-28 173642](https://github.com/maorgelis/ShutTheTarget/assets/167463733/2bc33742-66a5-4187-a77c-f0ead3e25514)
+
 נגמרה התוכנית!
 
 שלבי הפיתוח: בהתחלה חילקתי את הפרויקט להרבה תתי משימות וכל יום עשיתי תת משימה אחת כך שלבסוף סיימתי את כל הפרוייקט 
+
 בשלב הראשון רק ציירתי את המטרה והחצים . שלב שני עבדתי על החלק של התזוזה של החץ למעלה ולמטה. 
 שלב שלישי עבדתי התזוזוה של החץ כשאר לוחצים על המקש של השיגור. שלב רביעי צבעתי את המטרה בצהוב עם החץ באמת פגע בה.
 שלב חמישי עשיתי את הלוגו עם השם שלי והשם של הפרוייקט. 
