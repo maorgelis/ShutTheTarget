@@ -41,7 +41,7 @@
  p4 dw ?  ;;;; The variable keeps the value of Y at the second point of the function that draws the lower diagonal line
     
  p11 dw ?  ;;;; The variable keeps the value of X at the first point of the function that draws the upper diagonal line
- p22 dw ?  ;;;; The variable keeps the value of X at the second point of the function that draws the upper diagonal lineון
+ p22 dw ?  ;;;; The variable keeps the value of X at the second point of the function that draws the upper diagonal line??
  p33 dw ?  ;;;; The variable keeps the value of Y at the first point of the function that draws the upper diagonal line
  p44 dw ?   ;;;; The variable keeps the value of Y at the second point of the function that draws the upper diagonal line
  
@@ -66,9 +66,8 @@ msg7 db "  ____  _   _ _   _ _____    ",13,10,         " / ___|| | | | | | |_   
  
  
                                                              
-;;;; 
-Input argument The required parameters: x_center - X value of the center of the circle, y_center - y value of the center of the circle, y_value, x_value - the size of the radius of the circle, color - the color of the circle
-;;;;  Output assertion: the function draws a circle on the screen according to the values ​​entered into it
+;;;; Input argument The required parameters: x_center - X value of the center of the circle, y_center - y value of the center of the circle, y_value, x_value - the size of the radius of the circle, color - the color of the circle
+;;;;  Output assertion: the function draws a circle on the screen according to the values ??entered into it
 ;=========================================
 .CODE
  circle proc
@@ -182,9 +181,8 @@ end:
 ret
  circle endp
  
-;;;; 
-xline - the x value of the straight line, yline - the Hawaii value of the straight line, wline - the length of the straight line, color - input argument, the required parameters: the color of the straight line
-;;;; Exit assertion: the function draws a straight line according to the values ​​entered into it  
+;;;; xline - the x value of the straight line, yline - the Hawaii value of the straight line, wline - the length of the straight line, color - input argument, the required parameters: the color of the straight line
+;;;; Exit assertion: the function draws a straight line according to the values ??entered into it  
 drawline proc
     push BP     ; save BP on stack
     mov BP, SP  ; set BP to current SP     
@@ -204,9 +202,8 @@ line: mov ah, 0ch      ; put pixel
     RET 6           ; return from the function and clean up the stack 
 drawline endp
 
-;;;;
-point2Y- y value of the second point of the diagonal line, point2X- x value of the second point of the diagonal line, point1Y- y value of the first point of the diagonal line, point1X- input argument The required parameters: the x value of the first point of the diagonal line
-;;;; Output claim: The function draws a diagonal line according to two points of X and W and draws according to the values ​​of the points  
+;;;;point2Y- y value of the second point of the diagonal line, point2X- x value of the second point of the diagonal line, point1Y- y value of the first point of the diagonal line, point1X- input argument The required parameters: the x value of the first point of the diagonal line
+;;;; Output claim: The function draws a diagonal line according to two points of X and W and draws according to the values ??of the points  
  Macro DrawLine2DDY p1X, p1Y, p2X, p2Y
    
 	local l1, lp, nxt
@@ -374,8 +371,8 @@ ENDP DrawLine2D
 ; output: point on the screen			
 ;-----------------------------------------------
 
-;;;; טענת כניסה הפרמטים הנדרשים pointX,pointY,color
-;;;;   טענת יציאה הפונקציה צובעת את הפיקסל הנוכחי על פי המיקום וצובעת את הפיקסל המתאים על פי ערכי המשתנים בצבע  
+;;;; ???? ????? ??????? ??????? pointX,pointY,color
+;;;;   ???? ????? ???????? ????? ?? ?????? ?????? ?? ?? ?????? ?????? ?? ?????? ?????? ?? ?? ???? ??????? ????  
 PROC PIXEL
 	mov bh,0h
 	mov cx,[pointX]
@@ -387,7 +384,7 @@ PROC PIXEL
 ENDP PIXEL 
 
 ;;;;  xline - the X value of the straight line, yline - the Hawaii value of the straight line, wline - the length of the straight line, color - the color of the straight line, point2Y - the Wai value of the second point of the diagonal line, point2X - the X value of the second point of the diagonal line point1Y- the Y value of the first point of the diagonal line, point1X- input argument The required parameters: the X value of the first point of the diagonal line 
-;;;; Exit assertion: the function receives receives the previous values ​​of the target I drew and deletes them and redraws them in a different position which actually launches the arrow towards the target in identical jumps according to the values ​​of the variables
+;;;; Exit assertion: the function receives receives the previous values ??of the target I drew and deletes them and redraws them in a different position which actually launches the arrow towards the target in identical jumps according to the values ??of the variables
 proc LaunchArrow
     pusha
     mov [wline],50 
@@ -513,7 +510,135 @@ proc LaunchArrow
     popa
     ret  
                   
-endp LaunchArrow
+endp LaunchArrow  
+
+    
+proc MoveUpFunc
+    
+   
+    mov [wline],50 
+    mov [color], 0
+    push xline
+    push yline
+    push wline
+    call drawline 
+    
+    mov Colore, 0
+    mov ax, p11
+	mov point1X, ax
+	push point1X   
+	mov bx, p22
+	mov point2X, bx
+	push point2X
+	mov cx, p33 
+	mov point1Y, cx
+	push point1Y
+	mov dx, p44
+	mov point2Y, dx
+	push point2Y
+	call DrawLine2D
+	
+	mov ax, point1X
+	mov bx, point2X
+	mov cx, point1Y
+	mov dx, point2Y
+	
+	mov p11, ax
+	mov p22, bx
+	mov p33, cx
+	mov p44, dx
+	  
+    
+    mov Colore, 0
+    mov ax, p1
+	mov point1X, ax
+	push point1X   
+	mov bx, p2
+	mov point2X, bx
+	push point2X
+	mov cx, p3 
+	mov point1Y, cx
+	push point1Y
+	mov dx, p4
+	mov point2Y, dx
+	push point2Y
+	call DrawLine2D
+	
+	mov ax, point1X
+	mov bx, point2X
+	mov cx, point1Y
+	mov dx, point2Y
+	
+	mov p1, ax
+	mov p2, bx
+	mov p3, cx
+	mov p4, dx
+	
+	
+    mov Colore, 15 
+    mov  ax, p11
+    mov  point1X,ax
+    push point1X   
+    mov  bx, p22
+	mov  point2X,bx
+	push point2X
+	mov  cx, p33
+	mov  point1Y,cx
+	sub  point1Y,10
+	push point1Y   
+	mov  dx,p44 
+	mov  point2Y,dx
+	sub  point2Y,10
+	push point2Y
+	call DrawLine2D
+    mov ax, point1X
+	mov bx, point2X
+	mov cx, point1Y
+	mov dx, point2Y
+	
+	mov p11, ax
+	mov p22, bx
+	mov p33, cx
+	mov p44, dx
+    
+    
+    mov Colore, 15
+    mov  ax, p1
+    mov  point1X,ax
+    push point1X   
+    mov  bx, p2
+	mov  point2X,bx
+	push point2X
+	mov  cx, p3
+	mov  point1Y,cx
+	sub  point1Y,10
+	push point1Y   
+	mov  dx,p4 
+	mov  point2Y,dx
+	sub  point2Y,10
+	push point2Y
+	call DrawLine2D  
+    mov ax, point1X
+	mov bx, point2X
+	mov cx, point1Y
+	mov dx, point2Y
+	
+	mov p1, ax
+	mov p2, bx
+	mov p3, cx
+	mov p4, dx
+     
+ 
+    sub [yline],10
+    mov [wline],50
+    mov [color],15
+    push xline
+    push yline
+    push wline
+    call drawline
+    
+  
+endp  MoveUpFunc
  
  
  
@@ -662,133 +787,11 @@ start:
     je MoveDown
     
     cmp ah, 4Bh
-    je LaunchArrowLabel
+    je LaunchArrowLabel  
     
     MoveUp:
-    
-   
-    mov [wline],50 
-    mov [color], 0
-    push xline
-    push yline
-    push wline
-    call drawline 
-    
-    mov Colore, 0
-    mov ax, p11
-	mov point1X, ax
-	push point1X   
-	mov bx, p22
-	mov point2X, bx
-	push point2X
-	mov cx, p33 
-	mov point1Y, cx
-	push point1Y
-	mov dx, p44
-	mov point2Y, dx
-	push point2Y
-	call DrawLine2D
-	
-	mov ax, point1X
-	mov bx, point2X
-	mov cx, point1Y
-	mov dx, point2Y
-	
-	mov p11, ax
-	mov p22, bx
-	mov p33, cx
-	mov p44, dx
-	  
-    
-    mov Colore, 0
-    mov ax, p1
-	mov point1X, ax
-	push point1X   
-	mov bx, p2
-	mov point2X, bx
-	push point2X
-	mov cx, p3 
-	mov point1Y, cx
-	push point1Y
-	mov dx, p4
-	mov point2Y, dx
-	push point2Y
-	call DrawLine2D
-	
-	mov ax, point1X
-	mov bx, point2X
-	mov cx, point1Y
-	mov dx, point2Y
-	
-	mov p1, ax
-	mov p2, bx
-	mov p3, cx
-	mov p4, dx
-	
-	
-    mov Colore, 15 
-    mov  ax, p11
-    mov  point1X,ax
-    push point1X   
-    mov  bx, p22
-	mov  point2X,bx
-	push point2X
-	mov  cx, p33
-	mov  point1Y,cx
-	sub  point1Y,10
-	push point1Y   
-	mov  dx,p44 
-	mov  point2Y,dx
-	sub  point2Y,10
-	push point2Y
-	call DrawLine2D
-    mov ax, point1X
-	mov bx, point2X
-	mov cx, point1Y
-	mov dx, point2Y
-	
-	mov p11, ax
-	mov p22, bx
-	mov p33, cx
-	mov p44, dx
-    
-    
-    mov Colore, 15
-    mov  ax, p1
-    mov  point1X,ax
-    push point1X   
-    mov  bx, p2
-	mov  point2X,bx
-	push point2X
-	mov  cx, p3
-	mov  point1Y,cx
-	sub  point1Y,10
-	push point1Y   
-	mov  dx,p4 
-	mov  point2Y,dx
-	sub  point2Y,10
-	push point2Y
-	call DrawLine2D  
-    mov ax, point1X
-	mov bx, point2X
-	mov cx, point1Y
-	mov dx, point2Y
-	
-	mov p1, ax
-	mov p2, bx
-	mov p3, cx
-	mov p4, dx
-     
- 
-    sub [yline],10
-    mov [wline],50
-    mov [color],15
-    push xline
-    push yline
-    push wline
-    call drawline
-    
-    jmp Redraw
+       call MoveUpFunc
+       jmp Redraw
     
     MoveDown:
     
